@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f3f4f6;
+  font-family: "Montserrat", -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #778298;
+}
+
+.search {
+  margin: auto;
+  text-align: center;
+}
+
+.search label {
+  font-size: 2rem;
+}
+
+.search input {
+  margin: auto;
+  width: 16rem;
+}
+
+.search button {
+  margin-top: 1rem;
+}
+
+.albums-result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  padding-top: 1rem;
+  margin: 1rem;
+  box-shadow: 0 2px 7px 3px #949ca5;
+}
+
+.card .card-link {
+  text-align: center;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.card img {
+  max-width: 250px;
+  height: 250px;
+}
