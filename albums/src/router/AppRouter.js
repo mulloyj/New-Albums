@@ -6,19 +6,17 @@ import {
   Route
 } from 'react-router-dom';
 
-import Album from '../components/Album';
+import Navbar from '../components/Navbar';
+import AlbumBySlug from '../components/AlbumBySlug';
+import CurrentAlbum from '../components/CurrentAlbum';
+import AlbumList from '../components/AlbumList';
 import SpotifyLogin from '../components/Spotify/SpotifyLogin';
 import SpotifyAdd from '../components/Spotify/SpotifyAdd';
+import AddAlbum from '../components/Spotify/AddAlbum';
 
 export default class AppRouter extends Component {
     state = {
-        album: ''
-            /* {
-                title: 'Wish You Were Here',
-                artist: 'Pink Floyd',
-                img: 'https://i.scdn.co/image/ab67616d0000b2731a84d71391df7469c5ab8539', 
-                spotify: 'spotify:album:0bCAjiUamIFqKJsekOYuRw'
-            }, */
+        addAlbum: '',
     }
 
     isValidSession = () => {
@@ -28,27 +26,41 @@ export default class AppRouter extends Component {
         return currentTime < expiryTime;
     }
 
-    updateAlbum = (album) => {
-        this.setState({album: album});
-        console.log(album);
+    updateAddAlbum = (album) => {
+        this.setState({addAlbum: album});
     }
 
     render() {
         return (
             <React.Fragment>
+                <Navbar />
                 <Router>
                     <Routes>
                         <Route 
                             path="/spotify/callback/"
                             element={<SpotifyLogin/>}
                             />
+                        <Route 
+                            path="/spotify/add"
+                            element={<AddAlbum isValidSession={this.isValidSession} album={this.state.addAlbum}/>}/>
                         <Route
                             path="/albums/add/"
-                            element={<SpotifyAdd isValidSession={this.isValidSession} updateAlbum={this.updateAlbum}/>}
+                            element={<SpotifyAdd isValidSession={this.isValidSession} updateAddAlbum={this.updateAddAlbum}/>}
+                            />
+                         <Route
+                            path="/albums/current/"
+                            element={<CurrentAlbum />}
                             />
                         <Route
-                            path="/albums/current/"
-                            element={<Album album={this.state.album}/>}
+                            path="/albums/"
+                            element={<AlbumList />} 
+                            />
+                        <Route
+                            path="/albums/current"
+                            element={<CurrentAlbum />}/>
+                        <Route 
+                            path="/albums/:id/:slug/"
+                            element={<AlbumBySlug />}
                             />
                         <Route 
                             path="/"

@@ -1,10 +1,9 @@
 .album {
-  display: block;
+  /*display: block;*/
   justify-content: center;
   margin: auto;
   width: 50%;
   text-align: center;
-  background-color: grey;
 }
 
 .title {
@@ -18,12 +17,6 @@
   font-size: 1.5rem;
 }
 
-.cover {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .icon {
   margin: 1rem 0;
   display: inline-block;
@@ -31,4 +24,15 @@
   width: 30px;
   height: auto;
   position: relative;
+}
+
+.album-link {
+  text-decoration: inherit;
+  display: block;
+  text-align: center;
+}
+
+.album-link img {
+  height: 18rem;
+  width: 18rem;
 }

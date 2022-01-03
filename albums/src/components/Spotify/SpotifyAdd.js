@@ -49,7 +49,7 @@ export default class SpotifyAdd extends Component {
                         <SpotifyResult
                             albums={this.state.albums}
                             isValidSession={this.props.isValidSession}
-                            updateAlbum={this.props.updateAlbum}
+                            updateAddAlbum={this.props.updateAddAlbum}
                         />
                     </React.Fragment>
                 ) : (

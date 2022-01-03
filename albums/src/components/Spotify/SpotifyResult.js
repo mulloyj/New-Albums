@@ -12,14 +12,14 @@ const SpotifyResult = (props) => {
         return {
             title: album.name,
             artist: album.artists.map((artist) => artist.name).join(', '),
-            img: album.images[0].url,
-            spotify: album.uri,
+            imageUrl: album.images[0].url,
+            spotifyLink: album.uri,
         }
     }
 
-    const updateAlbum = (album) => {
+    const updateAddAlbum = (album) => {
         const convertedAlbum = convertAlbum(album);
-        props.updateAlbum(convertedAlbum);
+        props.updateAddAlbum(convertedAlbum);
     }
 
     return (
@@ -31,9 +31,9 @@ const SpotifyResult = (props) => {
                             <React.Fragment key={index}>
                                 <Card style={{ width: '18rem' }}>
                                     <Link
-                                        to="/albums/current/"
+                                        to="/spotify/add/"
                                         className="card-link"
-                                        onClick={(e) => updateAlbum(album)}
+                                        onClick={() => updateAddAlbum(album)}
                                     >
                                     {!_.isEmpty(album.images) ? (
                                         <Card.Img

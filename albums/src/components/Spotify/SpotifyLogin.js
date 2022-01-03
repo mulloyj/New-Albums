@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 
 import { getParamValues } from '../../utils/functions';
 
@@ -22,8 +23,6 @@ const SpotifyLogin = () => {
             localStorage.setItem('expiry_time', new Date().getTime() + expires_in * 1000);
 
             window.location = 'http://localhost:3000/albums/add/';
-
-            console.log()
         }
     });
 
@@ -32,9 +31,12 @@ const SpotifyLogin = () => {
     }
 
     return (
-        <button onClick={handleLogin}>
-            Login to Spotify
-        </button>
+        <div className='container'>
+            <p className='form-label'>To add an album login to spotify.</p>
+            <Button onClick={handleLogin} className="btn btn-warning">
+                Login to Spotify
+            </Button>
+        </div>
     );
 }
 

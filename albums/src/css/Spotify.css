@@ -56,3 +56,17 @@ body {
   max-width: 250px;
   height: 250px;
 }
+
+.container {
+  height: 40rem;
+  text-align: center;
+}
+
+.login-desc {
+  margin: 1rem;
+  padding-top: 15rem;
+}
+
+.add-album {
+  text-align: center;
+}
